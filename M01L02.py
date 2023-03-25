@@ -1,6 +1,12 @@
 # w_str = "1,2,3,boom,5,6,7,8,boom,0,1,2,3,boom,5"
 
-w_str = input("Insert game list:\n")
+try:
+    w_str = input("Insert game list:\n")
+    temp_index = w_str.index(',')
+except:
+    # in case of non-logical input
+    print("Incorrect input")
+    exit(1)
 
 n_str = w_str.replace('boom', 'x')
 
