@@ -17,7 +17,6 @@ def IsCellEmpty(arr, pos):
 def Move(who, pos):
     if who == 'X': PLayerMove(pos)
     if who == 'O': BotMoveSmart()
-    # if who == 'O': BotMoveRand()
 
 
 def PLayerMove(pos):
@@ -42,47 +41,45 @@ def GetRandValidCell(samples):
     print(samples)
     eci = []
     for i in range(len(samples)):
-        if MAIN_ARRAY[samples[i]-1] == '-': eci.append(samples[i])
+        if MAIN_ARRAY[samples[i] - 1] == '-': eci.append(samples[i])
 
     if len(eci) > 0:
-        print(eci)
         return random.choice(eci)
     else:
         return False
 
 
-def BotMoveRand():
-    eci = []
-    for i in range(9):
-        if MAIN_ARRAY[i] == '-': eci.append(i)
-
-    pos_index = random.choice(eci)
-    MAIN_ARRAY[pos_index] = 'O'
+# def BotMoveRand():
+#     eci = []
+#     for i in range(9):
+#         if MAIN_ARRAY[i] == '-': eci.append(i)
+#
+#     pos_index = random.choice(eci)
+#     MAIN_ARRAY[pos_index] = 'O'
 
 
 def CheckForWin(char):
-    # print('test 0')
     for i in range(9):
         temp_arr = MAIN_ARRAY.copy()
-        # print('test 1')
         if IsCellEmpty(temp_arr, i + 1):
-            # print('test 2')
             temp_arr[i] = char
             if IsWin(temp_arr, char):
-                # print('test 3')
                 return i + 1
 
     return False
+
 
 def TryMove(pos):
     if pos:
         MAIN_ARRAY[pos - 1] = 'O'
         return True
 
+
 def PlayerAt(poses):
     for i in poses:
         if MAIN_ARRAY[i - 1] == 'X': return True
     return False
+
 
 def TryMoveChain(arrays):
     for a in arrays:
@@ -90,7 +87,6 @@ def TryMoveChain(arrays):
 
     # any other choice is error
     print('Error at TryMoveChain func')
-
 
 
 def BotMoveSmart():
@@ -108,8 +104,8 @@ def BotMoveSmart():
             [5],
             [2, 4, 6, 8],
             [1, 3, 7, 9]
-        ]); return
-
+        ])
+        return
 
     # player's first choice is at side
     if PlayerAt([2, 4, 6, 8]):
@@ -119,14 +115,16 @@ def BotMoveSmart():
             [5],
             [1, 3, 7, 9],
             [2, 4, 6, 8]
-        ]); return
+        ])
+        return
 
     # player's first choice is at center
     if PlayerAt([5]):
         TryMoveChain([
             [1, 3, 7, 9],
             [2, 4, 6, 8]
-        ]); return
+        ])
+        return
 
     # any other choice is error
     print('Error at ifs')
