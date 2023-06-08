@@ -1,0 +1,8 @@
+Rachel:90, 95,86
+Tom: 300, 40
+Sarah: 30, A, 63
+David : -10, 84
+Mark: 30, 40, 55
+Tamar: 85.0,95
+Rivka: few^
+Melany:

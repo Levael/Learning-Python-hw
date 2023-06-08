@@ -1,7 +1,7 @@
 import numpy as np
 
 # Создайте пустую доску 3x3 с помощью библиотеки NumPy
-board = np.array([[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]])
+board = np.MAIN_ARRAY([[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]])
 current_player = "X"  # Игрок, который делает ход первым
 
 def print_board():
